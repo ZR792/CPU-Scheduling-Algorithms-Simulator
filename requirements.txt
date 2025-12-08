@@ -1,0 +1,7 @@
+matplotlib
+numpy
+python-pptx
+requests
+pillow
+pytest
+PyQt5
