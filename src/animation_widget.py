@@ -42,11 +42,11 @@ class _AnimationCanvas(QWidget):
         self.proc_map = {}
         self.colors = {}
 
-        # self.timer = QTimer()
-        # self.timer.timeout.connect(self._tick)
+        self.timer = QTimer()
+        self.timer.timeout.connect(self._tick)
 
-        # self.time_unit_ms = 350
-        # self.fps = 10
+        self.time_unit_ms = 350
+        self.fps = 10
 
         # animation state
         self.running = False
