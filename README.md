@@ -79,7 +79,7 @@ The project was developed as part of the **Operating Systems course** for the **
 ---
 
 ## 📁 Project Structure
-``
+````
 CPU-Scheduling-Algorithms-Simulator/
 │
 ├── src/
@@ -92,7 +92,7 @@ CPU-Scheduling-Algorithms-Simulator/
 ├── README.md
 └── requirements.txt
 └── .gitignore
-``
+````
 
 
 ---
