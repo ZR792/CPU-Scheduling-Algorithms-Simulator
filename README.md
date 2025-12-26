@@ -146,9 +146,9 @@ pyhton src/hmain.py
 
 ## 👥 Group Members
 
-- **Zainab Ramzan**  
-- **Hafsa Rahman**  
-- **Alishba Shabbir**  
+- **(Zainab Ramzan)[https://github.com/ZR792]**  
+- **(Hafsa Rahman)[https://github.com/HafsaRahman05]**  
+- **(Alishba Shabbir)[https://github.com/alishba25-alish]**  
 
 ### 📄 License
 
