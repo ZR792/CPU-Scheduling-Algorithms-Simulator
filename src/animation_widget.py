@@ -8,6 +8,10 @@ from typing import List, Tuple
 
 class AnimationWidget(QWidget):
     finished = pyqtSignal()
+
+    def skip(self):
+        self.inner.skip()
+
     def __init__(self):
         super().__init__()
         self.inner = _AnimationCanvas()
@@ -19,6 +23,7 @@ class AnimationWidget(QWidget):
         # forward signal
         self.inner.finished.connect(self.finished)
     # EXPOSE the play() function for external use
+
     def play(self, gantt, processes, time_unit_ms=350, preserve_state=False):
         self.inner.play(gantt, processes, time_unit_ms, preserve_state)
 
@@ -29,6 +34,20 @@ class AnimationWidget(QWidget):
 class _AnimationCanvas(QWidget):
     finished = pyqtSignal()
     """Internal canvas that actually draws the animation"""
+    def skip(self):
+        # Stop animation timer
+        self.timer.stop()
+        self.running = False
+
+        # Jump to end
+        self.current_index = len(self.gantt)
+        self.block_elapsed_ms = 0
+
+        self.update()
+
+        # Emit finished signal
+        self.finished.emit()
+
     def __init__(self):
         super().__init__()
 

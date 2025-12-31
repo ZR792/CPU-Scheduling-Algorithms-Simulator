@@ -259,13 +259,18 @@ class SimulationWindow(QMainWindow):
         # self.scroll = scroll  # store reference for scrolling
 
         layout = QVBoxLayout(root)
-
         # Animation widget
         self.animation = AnimationWidget()
         layout.addWidget(self.animation)
 
+        # Skip button
+        self.skip_btn = QPushButton("⏩ Skip Animation")
+        self.skip_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self.skip_btn.clicked.connect(self.skip_animation)
+        layout.addWidget(self.skip_btn)
+
+
         # Result table (initially hidden)
-        
         self.result_table = QTableWidget()
         self.result_table.setVisible(False)
         self.result_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -277,6 +282,9 @@ class SimulationWindow(QMainWindow):
 
         # Start animation
         self.animation.play(gantt, processes, time_unit_ms=350, preserve_state=self.preserve_state)
+
+    def skip_animation(self):
+        self.animation.skip()# call skip function
 
     def show_results(self):
         processes = self.processes
@@ -299,6 +307,7 @@ class SimulationWindow(QMainWindow):
         self.result_table.setColumnCount(len(headers))
         self.result_table.setHorizontalHeaderLabels(headers)
         self.result_table.setRowCount(0)
+        self.skip_btn.setEnabled(False)
 
         # Fill table
         for p in processes:
