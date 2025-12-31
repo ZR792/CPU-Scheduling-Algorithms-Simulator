@@ -110,6 +110,11 @@ python --version
 ``
 pip install - requirements.txt
 ``
+or
+
+``
+python -m pip install -r requirements.txt
+``
 
 ### 3️⃣ Run the Simulator
 
